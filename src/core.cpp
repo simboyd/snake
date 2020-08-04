@@ -29,12 +29,9 @@ Setup::Setup()
 	b = rand() % 256;
 	SDL_FillRect(windowSurface, NULL, SDL_MapRGB(windowSurface->format, r, g, b));
 	int x = 10, y = 10;
-	Square* temp;
 	for (int i = 0; i < 400; i++)
 	{
-		temp = new Square(windowSurface, false, i, x, y);
-		vec.push_back(*temp);
-		delete temp;
+		vec.push_back(Square(windowSurface, false, i, x, y));
 		vec[i].desnakify();
 		x += 32;
 		if (x > 640)
