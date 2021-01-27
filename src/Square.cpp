@@ -12,7 +12,7 @@ void Square::snakify()	{ if (Square::color == 100) Square::color = 120; else Squ
 void Square::desnakify(){ isPlayer = false; isFood = false; 
 						SDL_FillRect(wind, &box, SDL_MapRGB(wind->format, 255, 255, 255)); }
 void Square::foodify()	{ isPlayer = false; isFood = true;  SDL_FillRect(wind, &box, SDL_MapRGB(wind->format, 255, 0, 0));}
-bool Square::check_if_free() const { if (!isPlayer && !isFood) return true; else return false; }
-bool Square::check_if_food() const { if (isFood) return true; else return false; }
-bool Square::check_if_player() const { if (isPlayer) return true; else return false; }
+bool Square::check_if_free() const { return (!isPlayer && !isFood); }
+bool Square::check_if_food() const { return isFood; }
+bool Square::check_if_player() const { return isPlayer; }
 int Square::get_which() const { return which; }
